@@ -1,0 +1,56 @@
+Insurance Cost Forecasting 
+
+1. Import Libraries
+Imported Pandas, NumPy, Matplotlib and Seaborn for data manipulation and visualization. Imported Scikit-learn libraries for machine learning.
+
+
+2. Load Dataset
+Loaded the medical_insurance.csv dataset into a DataFrame and checked the dataset size, data types and missing values using shape(), info() and isnull().sum().
+
+
+3. Removed Unnecessary Columns
+Removed columns such as person_id, education, marital_status, employment_status, household_size, dependents, claim-related fields, hospitalization details, procedure counts and other less relevant columns. These columns were removed to reduce dimensionality, eliminate unnecessary information, avoid overfitting, and focus on the most important features influencing annual medical cost.
+
+
+4. Missing Value Handling
+Filled missing values in the alcohol_freq column using the mode (most frequent value) so that no missing values remained.
+
+
+5. Feature Engineering
+Created new features:
+• bmi_category – Categorized BMI into Underweight, Normal, Overweight and Obese.
+• health_risk – Combined hypertension, diabetes and cardiovascular disease into one health risk feature.
+• age_group – Divided age into Young, Middle and Senior groups.
+• high_income – Classified people into high-income and low-income groups.
+
+
+6. Data Encoding
+Applied One-Hot Encoding using pd.get_dummies() to convert categorical features into numerical values suitable for machine learning.
+
+
+7. Outlier Detection
+Used Isolation Forest to detect and remove abnormal records from the dataset, improving model quality.
+
+
+8. Train-Test Split
+Split the dataset into 80% training data and 20% testing data.
+
+
+9. Model Training
+Trained the Random Forest Regression with tuned parameters to predict annual medical cost.
+
+
+10. Feature Importance
+Calculated feature importance to identify which features contributed most to the prediction.
+
+11. Model Evaluation
+Evaluated the model using:
+• R² Score – Measures how well the model explains the target variable.
+• MAE – Average prediction error.
+• RMSE – Measures the prediction error in the original units.
+
+
+12. Prediction
+Used the trained model to predict the annual medical cost for a sample customer and compared the predicted value with the actual value.
+Conclusion
+This project performs insurance cost forecasting by preprocessing the data, engineering meaningful features, removing outliers, training a Random Forest regression model, evaluating its performance, and predicting annual medical costs.
